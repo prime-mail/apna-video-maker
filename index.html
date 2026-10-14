@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090d18"><meta name="description" content="Create AI videos from text prompts with Apna AI Video Maker.">
+<title>Apna AI Video Maker — Turn ideas into video</title>
+<style>
+:root{color-scheme:dark;--bg:#090d18;--panel:#101727;--panel2:#151e30;--line:#263149;--muted:#94a3b8;--text:#f4f7fb;--purple:#9274ff;--cyan:#64e6d0;--pink:#ff7bc5;--radius:18px}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% -15%,#26204c 0,transparent 36%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}.app{max-width:1440px;margin:auto;padding:24px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0 24px;border-bottom:1px solid #202a40}.brand{display:flex;align-items:center;gap:12px;font-size:19px;font-weight:800;letter-spacing:-.5px}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--purple),var(--pink));display:grid;place-items:center;box-shadow:0 8px 32px #9274ff45}.logo svg{width:23px}.brand small{display:block;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:.4px}.top-actions{display:flex;gap:10px;align-items:center}.pill{border:1px solid var(--line);padding:9px 13px;border-radius:999px;color:#cbd5e1;background:#111827;font-size:12px}.status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#f5b942;margin-right:7px}.layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(340px,.9fr);gap:22px;margin-top:25px}.panel{border:1px solid var(--line);background:linear-gradient(180deg,#121a2bfa,#0e1524fa);border-radius:var(--radius);overflow:hidden}.panel-head{padding:20px 22px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}.panel-head h2{font-size:16px;margin:0;letter-spacing:-.3px}.eyebrow{color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase}.content{padding:20px 22px 23px}.field-label{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:700;color:#dbe4f3;margin-bottom:9px}.hint{font-size:11px;color:var(--muted);font-weight:400}.textarea-wrap{position:relative}textarea,input,select{width:100%;border:1px solid #2b3650;background:#0b1120;color:var(--text);border-radius:12px;padding:13px 14px;outline:none}textarea:focus,input:focus,select:focus{border-color:var(--purple);box-shadow:0 0 0 3px #9274ff20}textarea{resize:vertical;min-height:145px;line-height:1.65}textarea::placeholder,input::placeholder{color:#64748b}.prompt-foot{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:11px;margin-top:8px}.sample-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.chip{border:1px solid #303b54;background:#151e30;color:#c6d1e3;border-radius:999px;padding:6px 10px;font-size:11px}.chip:hover{border-color:var(--purple);color:#fff}.section{margin-top:23px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field-label span{display:flex;align-items:center;gap:6px}.field-label .hint{font-weight:400}.select-wrap select{appearance:auto}.generate{width:100%;border:0;border-radius:13px;margin-top:22px;padding:15px 18px;font-weight:800;color:#0b1020;background:linear-gradient(100deg,#a28aff,#74e9d6);box-shadow:0 10px 35px #8b75ff25;transition:transform .2s,filter .2s}.generate:hover{transform:translateY(-1px);filter:brightness(1.06)}.generate:disabled{opacity:.55;cursor:wait;transform:none}.safe-note{text-align:center;color:#7f8da5;font-size:11px;margin-top:10px}.preview{padding:18px}.preview-screen{position:relative;min-height:300px;aspect-ratio:16/9;border:1px solid #2a3650;border-radius:15px;overflow:hidden;background:radial-gradient(ellipse at 52% 30%,#413778 0,transparent 30%),radial-gradient(ellipse at 72% 80%,#153c4c 0,transparent 36%),linear-gradient(135deg,#10182b,#1a1735 55%,#101e2b);display:grid;place-items:center}.preview-screen:before,.preview-screen:after{content:"";position:absolute;border:1px solid #ffffff12;border-radius:50%;width:270px;height:270px;transform:rotate(-25deg);box-shadow:0 0 80px #9274ff15}.preview-screen:after{width:190px;height:190px;transform:rotate(30deg)}.preview-inner{position:relative;z-index:1;text-align:center;padding:20px;max-width:350px}.play-icon{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;margin:0 auto 15px;background:#ffffff15;border:1px solid #ffffff40;backdrop-filter:blur(10px)}.preview-inner h3{margin:0 0 7px;font-size:17px}.preview-inner p{color:#a9b6cb;font-size:12px;margin:0}.video-output{width:100%;height:100%;min-height:300px;object-fit:contain;background:#05070c;display:block}.preview-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;color:var(--muted);font-size:11px}.mini-btn{background:#151e30;border:1px solid var(--line);color:#dce6f7;border-radius:9px;padding:8px 11px;font-size:11px}.mini-btn:disabled{opacity:.45;cursor:not-allowed}.progress-wrap{margin-top:16px;display:none}.progress-top{display:flex;justify-content:space-between;font-size:11px;color:#cbd5e1;margin-bottom:8px}.progress-track{height:6px;border-radius:10px;background:#222d43;overflow:hidden}.progress-fill{height:100%;width:8%;background:linear-gradient(90deg,var(--purple),var(--cyan));border-radius:10px;transition:width .5s}.note{border:1px solid #263149;background:#101827;border-radius:12px;padding:13px;margin-top:16px;color:#a8b6ca;font-size:11px}.note strong{color:#e3eafa}.bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}.project-list{display:grid;gap:9px}.project{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 12px;background:#0c1321;border:1px solid #263149;border-radius:12px}.project-title{font-size:12px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.project-date{font-size:10px;color:var(--muted);margin-top:3px}.project-actions{display:flex;gap:6px}.empty{color:var(--muted);font-size:12px;text-align:center;padding:17px 8px}.api-row{display:flex;gap:9px}.api-row input{min-width:0}.api-status{font-size:11px;color:var(--muted);margin-top:9px}.api-status.good{color:var(--cyan)}.api-status.bad{color:#ff9baf}.footer{padding:25px 0 8px;text-align:center;color:#64748b;font-size:11px}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:9;background:#e9fff9;color:#10221f;padding:11px 16px;border-radius:12px;font-size:12px;font-weight:700;box-shadow:0 12px 35px #0005;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}.modal-backdrop{position:fixed;inset:0;background:#050812d9;display:none;place-items:center;padding:18px;z-index:8}.modal-backdrop.open{display:grid}.modal{width:min(520px,100%);border:1px solid var(--line);border-radius:18px;background:#111a2b;padding:23px}.modal h2{margin:0 0 8px}.modal p{color:var(--muted);font-size:12px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.lang-ur{font-size:12px;color:#b7c4d8;margin-top:7px;direction:rtl;text-align:right}.small-heading{font-size:12px;font-weight:800;margin:0 0 12px}.divider{height:1px;background:#222d43;margin:20px 0}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.bottom-grid{grid-template-columns:1fr}.preview-screen{min-height:230px}}@media(max-width:520px){.app{padding:14px}.topbar{align-items:flex-start}.brand{font-size:16px}.top-actions .pill:first-child{display:none}.fields{grid-template-columns:1fr}.content{padding:17px}.panel-head{padding:18px 17px 0}.preview{padding:13px}.preview-screen{min-height:210px}.preview-meta{align-items:flex-start;flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+ <div class="brand"><div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5.5v13l11-6.5z"/></svg></div><div>Apna AI Video Maker<small>IDEA IN. VIDEO OUT.</small></div></div>
+ <div class="top-actions"><span class="pill"><span class="status-dot"></span><span id="connectionLabel">AI service not connected</span></span><button class="mini-btn" id="settingsBtn">⚙ Settings</button></div>
+</header>
+<main>
+<div class="layout">
+<section class="panel">
+ <div class="panel-head"><div><div class="eyebrow">Create studio</div><h2 style="margin-top:5px">Apni video banayein</h2></div><span class="pill">✦ AI powered</span></div>
+ <div class="content">
+  <label class="field-label" for="prompt">Aap ki video ka idea <span class="hint" id="charCount">0 / 1200</span></label>
+  <textarea id="prompt" maxlength="1200" placeholder="Misal: Paharon ke darmiyan ek khoobsurat jheel, subah ki sunehri roshni, cinematic drone shot, realistic details..."></textarea>
+  <div class="prompt-foot"><span>Behtar result ke liye scene, mood aur camera movement likhein.</span><span>✧</span></div>
+  <div class="lang-ur">Roman Urdu ya English — dono mein likhein</div>
+  <div class="sample-row"><button class="chip" data-prompt="A cinematic drone shot over the northern Pakistan mountains at sunrise, mist over turquoise lakes, realistic, smooth camera movement">🏔 Northern Pakistan</button><button class="chip" data-prompt="A tiny astronaut walking through a glowing alien garden, bioluminescent plants, cinematic science fiction, slow tracking shot">🚀 Sci-fi world</button><button class="chip" data-prompt="Fresh coffee being poured into a ceramic cup beside a rainy window, warm light, close-up product commercial, slow motion">☕ Product ad</button></div>
+  <div class="section fields">
+   <div><label class="field-label" for="ratio">Video ka size</label><select id="ratio"><option value="16:9">Landscape (16:9)</option><option value="9:16">Vertical / Reels (9:16)</option><option value="1:1">Square (1:1)</option></select></div>
+   <div><label class="field-label" for="quality">Quality</label><select id="quality"><option value="standard">Standard</option><option value="high">High (agar model support kare)</option></select></div>
+   <div><label class="field-label" for="duration">Duration</label><select id="duration"><option value="5">5 seconds</option><option value="8" selected>8 seconds</option><option value="10">10 seconds</option></select></div>
+   <div><label class="field-label" for="style">Video style</label><select id="style"><option value="cinematic">Cinematic</option><option value="realistic">Realistic</option><option value="animation">3D Animation</option><option value="anime">Anime</option><option value="commercial">Product Commercial</option><option value="documentary">Documentary</option></select></div>
+  </div>
+  <button class="generate" id="generateBtn">✦ &nbsp; Generate AI Video <span aria-hidden="true">→</span></button>
+  <div class="safe-note">API key browser mein nahi rakhi jati. Server-side AI connection zaroori hai.</div>
+ </div>
+</section>
+<section class="panel">
+ <div class="panel-head"><div><div class="eyebrow">Your result</div><h2 style="margin-top:5px">Video preview</h2></div><span class="pill" id="previewBadge">READY</span></div>
+ <div class="preview">
+  <div class="preview-screen" id="previewScreen"><div class="preview-inner"><div class="play-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M9 5v14l11-7z"/></svg></div><h3>Aap ka idea, ek nayi video</h3><p>Apna prompt likhein aur Generate par click karein.</p></div></div>
+  <div class="preview-meta"><span id="previewMeta">MP4 video yahan nazar aayegi</span><a id="downloadBtn" class="mini-btn" href="#" download="apna-ai-video.mp4" style="text-decoration:none;pointer-events:none;opacity:.45">↓ Download MP4</a></div>
+  <div class="progress-wrap" id="progressWrap"><div class="progress-top"><span id="progressText">AI video tayyar ho rahi hai...</span><span id="progressPct">10%</span></div><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div></div>
+  <div class="note"><strong>Asal AI generation:</strong> Is app ko video banane ke liye server-side AI provider chahiye. Settings mein apne deployed backend ka URL lagayein. Backend set na ho to app fake video nahi dikhayegi.</div>
+ </div>
+</section>
+</div>
+<div class="bottom-grid">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Your library</div><h2 style="margin-top:5px">Saved projects</h2></div><button class="mini-btn" id="clearProjects">Clear all</button></div><div class="content"><div class="project-list" id="projectList"><div class="empty">Abhi koi saved project nahi. Prompt likh kar apna pehla project banayein.</div></div></div></section>
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Connection</div><h2 style="margin-top:5px">AI backend settings</h2></div><span class="pill">Secure setup</span></div><div class="content"><p style="font-size:12px;color:var(--muted);margin-top:0">Cloudflare Worker ya compatible secure backend ka URL yahan set karein. Provider ki secret API key backend par hi rehni chahiye.</p><label class="field-label" for="apiUrl">Backend URL</label><div class="api-row"><input id="apiUrl" placeholder="https://your-worker.workers.dev" autocomplete="url"><button class="mini-btn" id="saveApi">Save</button></div><div id="apiStatus" class="api-status">Backend URL abhi set nahi hai.</div><div class="divider"></div><h3 class="small-heading">Is version mein</h3><div style="display:grid;gap:9px;font-size:12px;color:#b8c5d9"><div>✓ Prompt editor aur video settings</div><div>✓ Saved projects is browser mein</div><div>✓ Real backend request aur job-status polling</div><div>✓ Generated video preview aur download link</div><div style="color:#e7c78c">! API provider aur backend deployment alag se configure karna hoga</div></div></div></section>
+</div>
+</main>
+<footer class="footer">Apna AI Video Maker · Apni soch ko video mein badlein · API keys kabhi public website mein paste na karein.</footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<div class="modal-backdrop" id="settingsModal"><div class="modal"><h2>Backend settings</h2><p>Apne secure video-generation backend ka base URL paste karein. Misal: https://apna-video-api.example.workers.dev</p><label class="field-label" for="modalApi">Backend URL</label><input id="modalApi" placeholder="https://your-worker.workers.dev"><div class="modal-actions"><button class="mini-btn" id="cancelSettings">Cancel</button><button class="generate" style="width:auto;margin:0;padding:10px 15px" id="modalSave">Save settings</button></div></div></div>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const KEY_URL='apnaVideoBackendUrl', KEY_PROJECTS='apnaVideoProjects';
+let activeVideoUrl='', currentJob=null, pollTimer=null, progressTimer=null;
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000)}
+function getUrl(){return localStorage.getItem(KEY_URL)||''}
+function setStatus(msg,type=''){const e=$('apiStatus');e.textContent=msg;e.className='api-status '+type}
+function refreshConnection(){const ok=!!getUrl();$('connectionLabel').textContent=ok?'Backend URL set':'AI service not connected';$('connectionLabel').previousElementSibling?.classList.toggle('status-dot',!ok);if(ok)setStatus('Backend URL save hai. Generate karne par connection check hoga.','good');else setStatus('Backend URL abhi set nahi hai.')}
+function saveUrl(v){v=(v||'').trim().replace(/\/$/,'');if(v&&!/^https?:\/\//i.test(v)){toast('URL https:// se shuru hona chahiye.');return false}if(v)localStorage.setItem(KEY_URL,v);else localStorage.removeItem(KEY_URL);$('apiUrl').value=v;$('modalApi').value=v;refreshConnection();toast(v?'Backend URL save ho gaya.':'Backend URL remove kar diya.');return true}
+function projects(){try{return JSON.parse(localStorage.getItem(KEY_PROJECTS)||'[]')}catch{return []}}
+function saveProjects(list){localStorage.setItem(KEY_PROJECTS,JSON.stringify(list.slice(0,30)));renderProjects()}
+function addProject(item){const list=projects();list.unshift(item);saveProjects(list)}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderProjects(){const list=projects();const el=$('projectList');if(!list.length){el.innerHTML='<div class="empty">Abhi koi saved project nahi. Prompt likh kar apna pehla project banayein.</div>';return}el.innerHTML=list.map((p,i)=>'<div class="project"><div style="min-width:0"><div class="project-title">'+escapeHtml(p.title||'Untitled video')+'</div><div class="project-date">'+escapeHtml(p.date||'Saved project')+(p.videoUrl?' · Video ready':' · Prompt saved')+'</div></div><div class="project-actions"><button class="mini-btn" data-open="'+i+'">Open</button><button class="mini-btn" data-delete="'+i+'" aria-label="Delete project">×</button></div></div>').join('')}
+function showVideo(url){activeVideoUrl=url;const screen=$('previewScreen');screen.innerHTML='';const video=document.createElement('video');video.className='video-output';video.controls=true;video.playsInline=true;video.src=url;screen.appendChild(video);const a=$('downloadBtn');a.href=url;a.style.pointerEvents='auto';a.style.opacity='1';$('previewBadge').textContent='VIDEO READY';$('previewMeta').textContent='AI generated video';}
+function showProgress(on,text='AI video tayyar ho rahi hai...'){ $('progressWrap').style.display=on?'block':'none';if(text)$('progressText').textContent=text}
+function stopProgress(){if(progressTimer)clearInterval(progressTimer);progressTimer=null;if(pollTimer)clearTimeout(pollTimer);pollTimer=null}
+function fail(msg){stopProgress();$('generateBtn').disabled=false;$('generateBtn').textContent='✦  Generate AI Video →';$('previewBadge').textContent='ERROR';showProgress(false);setStatus(msg,'bad');toast(msg)}
+async function parseResponse(r){let data;try{data=await r.json()}catch{throw new Error('Backend se valid JSON jawab nahi mila.')}if(!r.ok)throw new Error(data.error||data.detail||('Request error: '+r.status));return data}
+async function generate(){
+ const prompt=$('prompt').value.trim();if(!prompt){toast('Pehle apni video ka idea likhein.');$('prompt').focus();return}
+ const base=getUrl();if(!base){toast('Pehle Backend URL set karein.');$('apiUrl').focus();return}
+ stopProgress();$('generateBtn').disabled=true;$('generateBtn').textContent='⏳  Request bheji ja rahi hai...';$('previewBadge').textContent='STARTING';showProgress(true,'AI provider ko request bhej rahe hain...');$('progressFill').style.width='8%';$('progressPct').textContent='8%';let pct=8;
+ progressTimer=setInterval(()=>{pct=Math.min(88,pct+Math.max(1,(88-pct)*.045));$('progressFill').style.width=pct+'%';$('progressPct').textContent=Math.round(pct)+'%'},1600);
+ const style=$('style').value;const stylePrefix={cinematic:'Cinematic lighting, cinematic composition. ',realistic:'Photorealistic, natural lighting. ',animation:'High-quality 3D animation. ',anime:'Anime visual style. ',commercial:'Polished commercial product video. ',documentary:'Documentary visual style, natural camera movement. '}[style]||'';
+ const body={prompt:stylePrefix+prompt,aspect_ratio:$('ratio').value,duration:Number($('duration').value),quality:$('quality').value};
+ try{
+  const r=await fetch(base+'/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const data=await parseResponse(r);currentJob=data.id||data.prediction_id||data.job_id;
+  const video=data.video_url||data.output_url||(typeof data.output==='string'&&/^https?:/.test(data.output)?data.output:null);
+  if(video){finish(video,prompt);return}
+  if(data.status==='failed'||data.error)throw new Error(data.error||'Video generation fail ho gayi.');
+  if(!currentJob){if(data.output&&Array.isArray(data.output)&&data.output[0]){finish(data.output[0],prompt);return}throw new Error('Backend ne job ID nahi di. Worker setup check karein.')}
+  $('previewBadge').textContent='GENERATING';$('progressText').textContent='AI video generate kar raha hai...';setStatus('AI job chal rahi hai.','good');poll(currentJob,base,prompt,0);
+ }catch(e){fail(e.message||'Connection error. Backend URL aur deployment check karein.')}
+}
+function finish(url,prompt){stopProgress();$('generateBtn').disabled=false;$('generateBtn').textContent='✦  Generate AI Video →';$('progressFill').style.width='100%';$('progressPct').textContent='100%';showProgress(false);showVideo(url);setStatus('Video generate ho gayi.','good');addProject({title:prompt.slice(0,65),prompt,videoUrl:url,date:new Date().toLocaleString(),ratio:$('ratio').value});toast('Aap ki video tayyar hai!')}
+function poll(id,base,prompt,attempt){
+ if(attempt>180){fail('Generation mein bohat waqt lag raha hai. Kuch dair baad Saved Projects ya backend status check karein.');return}
+ pollTimer=setTimeout(async()=>{try{
+  const r=await fetch(base+'/status/'+encodeURIComponent(id));const d=await parseResponse(r);const status=String(d.status||'processing').toLowerCase();
+  if(['succeeded','successful','completed','complete'].includes(status)){
+   let url=d.video_url||d.output_url||(typeof d.output==='string'?d.output:null);
+   if(!url&&Array.isArray(d.output))url=d.output.find(x=>typeof x==='string'&&/^https?:/.test(x));
+   if(!url)throw new Error('Job complete hai lekin video URL nahi mila. Backend response check karein.');finish(url,prompt);return
+  }
+  if(['failed','canceled','cancelled'].includes(status))throw new Error(d.error||d.logs||'AI video job fail ho gayi. Provider settings check karein.');
+  $('progressText').textContent='AI video tayyar ho rahi hai... ('+status+')';$('previewBadge').textContent=status.toUpperCase().slice(0,12);poll(id,base,prompt,attempt+1);
+ }catch(e){fail(e.message||'Status check fail ho gaya.')}}
+ ,4000)
+}
+$('prompt').addEventListener('input',()=>{$('charCount').textContent=$('prompt').value.length+' / 1200'});
+document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>{$('prompt').value=b.dataset.prompt;$('charCount').textContent=$('prompt').value.length+' / 1200';$('prompt').focus()}));
+$('generateBtn').addEventListener('click',generate);
+$('saveApi').addEventListener('click',()=>saveUrl($('apiUrl').value));
+$('apiUrl').addEventListener('keydown',e=>{if(e.key==='Enter')saveUrl($('apiUrl').value)});
+$('settingsBtn').addEventListener('click',()=>{$('modalApi').value=getUrl();$('settingsModal').classList.add('open')});
+$('cancelSettings').addEventListener('click',()=>$('settingsModal').classList.remove('open'));
+$('modalSave').addEventListener('click',()=>{if(saveUrl($('modalApi').value))$('settingsModal').classList.remove('open')});
+$('settingsModal').addEventListener('click',e=>{if(e.target===$('settingsModal'))$('settingsModal').classList.remove('open')});
+$('clearProjects').addEventListener('click',()=>{if(confirm('Kya aap tamam saved projects delete karna chahte hain?')){saveProjects([]);toast('Projects clear ho gaye.')}});
+$('projectList').addEventListener('click',e=>{const open=e.target.closest('[data-open]'),del=e.target.closest('[data-delete]');if(open){const p=projects()[Number(open.dataset.open)];if(!p)return;$('prompt').value=p.prompt||'';$('charCount').textContent=$('prompt').value.length+' / 1200';if(p.videoUrl)showVideo(p.videoUrl);else toast('Prompt load ho gaya. Generate karne ke liye backend chahiye.');window.scrollTo({top:0,behavior:'smooth'})}if(del){const list=projects();list.splice(Number(del.dataset.delete),1);saveProjects(list);toast('Project delete ho gaya.')}});
+$('apiUrl').value=getUrl();$('modalApi').value=getUrl();refreshConnection();renderProjects();
+})();
+</script>
+</body></html>
