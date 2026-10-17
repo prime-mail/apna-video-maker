@@ -92,9 +92,13 @@ export default {
       if (model.toLowerCase() === "prunaai/p-video") {
         const duration = Number(body.duration);
         input.duration = Number.isInteger(duration) && duration >= 1 && duration <= 20 ? duration : 5;
-        const ratios = ["16:9", "9:16", "1:1", "4:3", "3:4", "21:9", "9:21"];
+        const ratios = ["16:9", "9:16", "1:1", "4:3", "3:4", "3:2", "2:3"];
         input.aspect_ratio = ratios.includes(body.aspect_ratio) ? body.aspect_ratio : "16:9";
         input.resolution = body.quality === "high" ? "1080p" : "720p";
+        // Explicitly keep the provider safety filter enabled.
+        input.disable_safety_filter = false;
+        input.prompt_upsampling = true;
+        input.save_audio = true;
       }
 
       let upstream;
