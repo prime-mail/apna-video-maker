@@ -35,21 +35,23 @@ Sirf GitHub Pages HTML/JavaScript se secret API key ko mehfooz nahi rakha ja sak
 3. `worker.js` ka poora code Worker editor mein paste karke deploy karein.
 4. Worker ke **Settings > Variables and Secrets** mein:
    - `REPLICATE_API_TOKEN` ko **Secret** ke taur par add karein. Token Replicate account se milta hai.
-   - `REPLICATE_MODEL` ko normal text variable ke taur par add karein. Is ki value Replicate par available compatible text-to-video model ka slug hona chahiye, format `owner/model`.
+   - `REPLICATE_MODEL` ko normal text variable ke taur par add karein. Default `prunaai/p-video` hai; pehle isi ko rehne dein. Model schema: https://replicate.com/prunaai/p-video/api/schema.
 5. Worker ko dobara deploy karein.
-6. `https://YOUR-WORKER-URL/health` khol kar `configured: true` check karein.
+6. `https://YOUR-WORKER-URL/health` khol kar `configured: true` check karein. Phir website par Backend URL save karke **Test** button dabayein.
 7. Website kholein, **Backend URL** mein Worker ka base URL paste karein aur **Save** dabayein.
 
 Replicate: https://replicate.com/  
 Pricing: https://replicate.com/pricing
 
-**Kharcha:** Video generation aam tor par paid hoti hai; provider ki current pricing aur model ke hisaab se paisay/credits lag sakte hain. API token ke baghair app real video generate nahi karegi.
+**Kharcha:** Replicate par P-Video ki listed pricing 720p ke liye taqreeban $0.02 per second aur 1080p ke liye $0.04 per second hai. 8-second video taqreeban $0.16 (720p) ya $0.32 (1080p) ho sakti hai. Current pricing: https://replicate.com/prunaai/p-video/readme. Token ke baghair real video generate nahi hogi.
 
 ## Zaroori provider compatibility note
 
-`worker.js` ek compatible Replicate text-to-video model ko `input: { prompt }` bhejta hai. Har model ke options aur input fields mukhtalif ho sakte hain. Model choose karte waqt us ke official API schema ko check karein. Agar model prompt ke ilawa required fields mangta ho, Worker ke request body ko us model ke schema ke mutabiq update karna hoga. Duration, aspect ratio aur quality ke UI options abhi prompt/UI preferences hain; starter Worker unhein provider ko forward nahi karta.
+`worker.js` default `prunaai/p-video` ko prompt, duration, aspect ratio, resolution, prompt upsampling aur audio setting bhejta hai. Safety filter enabled rakha gaya hai. Agar model badlein to us model ka schema aur code dono check karein.
 
 ## Security
+
+- **Public users ko link dene se pehle abuse protection lagayein.** CORS sirf browser-origin control hai, login ya API abuse protection nahi. Public launch se pehle Cloudflare Rate Limiting / Turnstile ya doosri server-side protection configure karein; warna koi direct API call karke aapke Replicate credits kharch kar sakta hai.
 
 - Kabhi bhi Replicate token ko `index.html`, GitHub repository, screenshots ya public messages mein paste na karein.
 - Token sirf Cloudflare Worker ke Secret field mein rakhein.
